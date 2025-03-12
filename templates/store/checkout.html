@@ -12,7 +12,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title mb-4">Billing Address</h4>
-        <form action="" method="POST">
+        <form action="{% url 'place_order' %}" method="POST">
             {% csrf_token %}
             <div class="form-row">
                 <div class="col form-group">
@@ -58,9 +58,26 @@
                     <input type="text" name="country" class="form-control" required>
                 </div>
             </div>
+           
                 <div class="form-row">
+                    <div class="col form-group">
+                        <label for="pin">Select PIN Code:</label>
+                        <select id="pin" name="pin" class="form-control" required>
+                            <option value="">Choose Your Pin</option>
+                            <option value="453441 Mhow">453441 - Mhow</option>
+                            <option value="453001 Betma, Umariya, Sanwer Road Bhawrasla">453001 – Betma, Umariya, Sanwer Road Bhawrasla</option>
+                            <option value="453111 Hatod">453111 – Hatod</option>
+                            <option value="453331 Rau">453331 – Rau</option>
+                            <option value="453551 Sanwer">453551 – Sanwer</option>
+                            <option value="452016 Bicholi Mardana">452016 – Bicholi Mardana</option>
+                            <option value="452009 Sudama Nagar">452009 – Sudama Nagar</option>
+                            <option value="452007 Juni Indore">452007 – Juni Indore</option>
+                        </select>
+                    </div>
+                   <div class="col form-group">
                     <label for="">Order Note</label>
                     <textarea name="order_note" rows="2" class="form-control"></textarea>
+                   </div>
                 </div>
             
         
