@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -126,12 +127,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / 'static'
+# STATICFILES_DIRS = [
+#     'shop/static',
+# ]
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
+
 STATICFILES_DIRS = [
-    'shop/static',
+    os.path.join(BASE_DIR, 'static'),  # Ensure 'static' directory is correctly set
+    os.path.join(BASE_DIR, 'shop/static'),  # Include 'shop/static' if needed
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Separate directory for collected static files
 
 # media files configuration
 MEDIA_URL = '/media/'
@@ -152,6 +160,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True 
-EMAIL_HOST_USER = 'enter your email here'
-EMAIL_HOST_PASSWORD = 'enter your password here'
+EMAIL_HOST_USER = 'teamdevendrapatidar@gmail.com'
+EMAIL_HOST_PASSWORD = 'sqjgvwqvuzowdhjp' 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
